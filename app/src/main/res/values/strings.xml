@@ -1,0 +1,76 @@
+<resources>
+
+    <string translatable="false" name="app_name">TuneBlob</string>
+
+    <!-- Permissions -->
+    <string name="microphone_access_required">TuneBlob needs access to your microphone in order to function.</string>
+    <string name="ok">OK</string>
+
+    <!-- Menu buttons -->
+    <string name="radial_meter">Radial Meter</string>
+    <string name="graph_meter">Graph Meter</string>
+    <string name="toggle_theme">Toggle Theme</string>
+    <string name="settings">Settings</string>
+
+    <!-- Formatting -->
+    <string name="cent_format">%s\u00A2</string>
+
+    <!-- Preferences -->
+
+    <!-- Categories -->
+    <string name="display">Display</string>
+    <string name="advanced">Advanced</string>
+    <string name="advanced_settings">Advanced Settings</string>
+
+    <!-- Active fragment -->
+    <string translatable="false" name="pref_active_fragment">active_fragment</string>
+
+    <!-- Day/night mode toggle -->
+    <string translatable="false" name="pref_night_mode">night_mode</string>
+
+    <!-- Minimum input volume -->
+    <string translatable="false" name="pref_min_input_volume">min_input_volume</string>
+    <string name="pref_min_input_volume_title">Minimum Input Volume</string>
+    <string name="pref_min_input_volume_desc">The minimum volume required to detect audio.</string>
+
+    <!-- Maximum frequency -->
+    <string translatable="false" name="pref_max_input_frequency">max_input_frequency</string>
+    <string name="pref_max_input_frequency_title">Maximum Input Frequency</string>
+    <string name="pref_max_input_frequency_desc">The maximum input frequency cutoff (low pass filter).</string>
+
+    <!-- A4 frequency -->
+    <string translatable="false" name="pref_tuning_standard">tuning_standard</string>
+    <string name="pref_tuning_standard_title">Tuning Standard</string>
+    <string name="pref_tuning_standard_desc">The tuning standard for A above middle C (A4).</string>
+
+    <!-- Graph meter line color -->
+    <string translatable="false" name="pref_graph_line_color">graph_line_color</string>
+    <string name="pref_graph_line_color_title">Line Color</string>
+    <string name="pref_graph_line_color_desc">The color of the lines that display the current note.</string>
+
+    <!-- Graph meter time range -->
+    <string translatable="false" name="pref_graph_time_range">graph_time_range</string>
+    <string name="pref_graph_time_range_title">Time Range</string>
+    <string name="pref_graph_time_range_desc">The displayed time range (seconds).</string>
+
+    <!-- Graph meter note range -->
+    <string translatable="false" name="pref_graph_note_range">graph_note_range</string>
+    <string name="pref_graph_note_range_title">Note Range</string>
+    <string name="pref_graph_note_range_desc">The displayed note range.</string>
+
+    <!-- Graph meter segment threshold -->
+    <string translatable="false" name="pref_graph_time_thresh">graph_time_thresh</string>
+    <string name="pref_graph_time_thresh_title">Segment Time Threshold</string>
+    <string name="pref_graph_time_thresh_desc">The time threshold used to break up segments of note lines (seconds).</string>
+
+    <!-- Graph meter segment threshold -->
+    <string translatable="false" name="pref_graph_note_thresh">graph_note_thresh</string>
+    <string name="pref_graph_note_thresh_title">Segment Note Threshold</string>
+    <string name="pref_graph_note_thresh_desc">The note threshold used to break up segments of note lines.</string>
+
+    <!-- Graph meter segment threshold -->
+    <string translatable="false" name="pref_graph_focus_lag">graph_focus_lag</string>
+    <string name="pref_graph_focus_lag_title">Focus Lag</string>
+    <string name="pref_graph_focus_lag_desc">Controls how quickly the view focuses on the latest note. Lower values will make the view snap faster. Higher values will make it snap slower.</string>
+
+</resources>

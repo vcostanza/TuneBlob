@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="gray_primary">#FF444444</color>
+    <color name="gray_secondary">#FF383838</color>
+
+    <!-- Text colors -->
+    <color name="title_text">#FFF</color>
+    <color name="summary_text">#AAA</color>
+    <color name="in_tune_text">#FFAAFFAA</color>
+    <color name="out_tune_text">#FFFFAAAA</color>
+
+    <!-- Icon colors -->
+    <color name="icon_tint">#FFF</color>
+
+    <!-- Radial meter view -->
+    <color name="radial_meter_outline">#CCC</color>
+
+    <!-- Graph meter view -->
+    <color name="note_background">#000</color>
+    <color name="note_background_even">#FF404040</color>
+    <color name="note_background_odd">#FF282828</color>
+    <color name="graph_text_background">#00000000</color>
+
+</resources>

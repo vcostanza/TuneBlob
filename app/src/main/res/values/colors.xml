@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Default colors -->
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="gray_primary">#FF666666</color>
+    <color name="gray_secondary">#FF444444</color>
+
+    <!-- Text colors -->
+    <color name="title_text">#000</color>
+    <color name="summary_text">#333</color>
+    <color name="in_tune_text">#FF009900</color>
+    <color name="out_tune_text">#FF990000</color>
+
+    <!-- Icon colors -->
+    <color name="icon_tint">#000</color>
+
+    <!-- Graph meter view -->
+    <color name="note_background">#CCC</color>
+    <color name="note_background_even">#888</color>
+    <color name="note_background_odd">#999</color>
+    <color name="graph_text_background">#60FFFFFF</color>
+
+    <!-- Radial meter view -->
+    <color name="radial_meter_outline">#222</color>
+
+    <!-- Standard color wheel -->
+    <color name="red">#FFFF0000</color>
+    <color name="orange">#FFFF8000</color>
+    <color name="yellow">#FFFFFF00</color>
+    <color name="lime_green">#FF80FF00</color>
+    <color name="green">#FF00FF00</color>
+    <color name="sea_green">#FF00FF80</color>
+    <color name="cyan">#FF00FFFF</color>
+    <color name="azure">#FF0080FF</color>
+    <color name="blue">#FF0000FF</color>
+    <color name="purple">#FF8000FF</color>
+    <color name="magenta">#FFFF00FF</color>
+    <color name="pink">#FFFF0080</color>
+
+    <!-- Standard color wheel (light) -->
+    <color name="light_red">#FFFF8080</color>
+    <color name="light_orange">#FFFFC080</color>
+    <color name="light_yellow">#FFFFFF80</color>
+    <color name="light_lime_green">#FFC0FF80</color>
+    <color name="light_green">#FF80FF80</color>
+    <color name="light_sea_green">#FF80FFC0</color>
+    <color name="light_cyan">#FF80FFFF</color>
+    <color name="light_azure">#FF80C0FF</color>
+    <color name="light_blue">#FF8080FF</color>
+    <color name="light_purple">#FFC080FF</color>
+    <color name="light_magenta">#FFFF80FF</color>
+    <color name="light_pink">#FFFF80C0</color>
+
+    <!-- Standard color wheel (dark) -->
+    <color name="dark_red">#FF800000</color>
+    <color name="dark_orange">#FF804000</color>
+    <color name="dark_yellow">#FF808000</color>
+    <color name="dark_lime_green">#FF408000</color>
+    <color name="dark_green">#FF008000</color>
+    <color name="dark_sea_green">#FF008040</color>
+    <color name="dark_cyan">#FF008080</color>
+    <color name="dark_azure">#FF004080</color>
+    <color name="dark_blue">#FF000080</color>
+    <color name="dark_purple">#FF400080</color>
+    <color name="dark_magenta">#FF800080</color>
+    <color name="dark_pink">#FF800040</color>
+
+</resources>

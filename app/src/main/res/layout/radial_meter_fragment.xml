@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/note_background"
+    tools:context=".fragment.RadialMeterFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/radial_meter_margin_top"
+        android:paddingStart="@dimen/radial_meter_margin"
+        android:paddingEnd="@dimen/radial_meter_margin"
+        android:paddingBottom="@dimen/radial_meter_margin"
+        app:layout_constraintBaseline_toTopOf="parent">
+
+        <software.blob.audio.tuner.view.RadialMeterBackgroundView
+            android:id="@+id/meter_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <software.blob.audio.tuner.view.RadialMeterPointerView
+            android:id="@+id/meter_pointer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </FrameLayout>
+
+    <!-- Displays the current note w/ microtonal variation -->
+    <LinearLayout
+        android:id="@+id/note_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBaseline_toTopOf="parent"
+        android:orientation="horizontal">
+
+        <!-- Scientific note name -->
+        <TextView
+            android:id="@+id/note_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/note_text_min_width"
+            android:textColor="@color/title_text"
+            android:textSize="@dimen/note_text_size"
+            android:textStyle="bold"
+            tools:text="C#4"/>
+
+        <!-- Microtonal variation in cents -->
+        <TextView
+            android:id="@+id/note_cents"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/note_text_min_width"
+            android:textColor="@color/title_text"
+            android:textSize="@dimen/note_text_size"
+            android:textStyle="bold"
+            tools:text="+50\u00A2"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

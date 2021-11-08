@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <software.blob.android.preference.view.SeekBarPreferenceView
+        app:key="@string/pref_min_input_volume"
+        app:icon="@drawable/ic_input_volume"
+        app:title="@string/pref_min_input_volume_title"
+        app:summary="@string/pref_min_input_volume_desc"
+        app:type="floating"
+        app:minValue="-60"
+        app:maxValue="-20"
+        app:interval="4"
+        app:unit="dB"/>
+
+    <software.blob.android.preference.view.SeekBarPreferenceView
+        app:key="@string/pref_max_input_frequency"
+        app:icon="@drawable/ic_input_frequency"
+        app:title="@string/pref_max_input_frequency_title"
+        app:summary="@string/pref_max_input_frequency_desc"
+        app:type="floating"
+        app:minValue="100"
+        app:maxValue="8000"
+        app:interval="100"
+        app:unit="Hz"/>
+
+    <software.blob.android.preference.view.SeekBarPreferenceView
+        app:key="@string/pref_tuning_standard"
+        app:icon="@drawable/ic_tuning_standard"
+        app:title="@string/pref_tuning_standard_title"
+        app:summary="@string/pref_tuning_standard_desc"
+        app:type="floating"
+        app:minValue="400"
+        app:maxValue="480"
+        app:interval="1"
+        app:unit="Hz"/>
+
+</PreferenceScreen>

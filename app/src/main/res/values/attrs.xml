@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="PreferenceView">
+        <attr name="bottomWidgetLayout" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="PreferenceLinkView">
+        <attr name="xml" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="SeekBarPreferenceView">
+        <attr name="type" format="enum">
+            <enum name="integer" value="0"/>
+            <enum name="floating" value="1"/>
+        </attr>
+        <attr name="minValue" format="float"/>
+        <attr name="maxValue" format="float"/>
+        <attr name="interval" format="float"/>
+        <attr name="showValue" format="boolean"/>
+        <attr name="unit" format="string"/>
+    </declare-styleable>
+
+</resources>

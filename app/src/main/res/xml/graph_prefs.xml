@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <software.blob.android.preference.view.ColorPreferenceView
+        app:key="@string/pref_graph_line_color"
+        app:icon="@drawable/ic_curve"
+        app:title="@string/pref_graph_line_color_title"
+        app:summary="@string/pref_graph_line_color_desc"/>
+
+    <software.blob.android.preference.view.SeekBarPreferenceView
+        app:key="@string/pref_graph_time_range"
+        app:icon="@drawable/ic_time_range"
+        app:title="@string/pref_graph_time_range_title"
+        app:summary="@string/pref_graph_time_range_desc"
+        app:type="floating"
+        app:minValue="0.5"
+        app:maxValue="10"
+        app:interval="0.5"
+        app:unit="s"/>
+
+    <software.blob.android.preference.view.SeekBarPreferenceView
+        app:key="@string/pref_graph_note_range"
+        app:icon="@drawable/ic_note_range"
+        app:title="@string/pref_graph_note_range_title"
+        app:summary="@string/pref_graph_note_range_desc"
+        app:type="floating"
+        app:minValue="5"
+        app:maxValue="12"
+        app:interval="1"/>
+
+    <software.blob.android.preference.view.SeekBarPreferenceView
+        app:key="@string/pref_graph_time_thresh"
+        app:icon="@drawable/ic_time_thresh"
+        app:title="@string/pref_graph_time_thresh_title"
+        app:summary="@string/pref_graph_time_thresh_desc"
+        app:type="floating"
+        app:minValue="0.2"
+        app:maxValue="5"
+        app:interval="0.2"
+        app:unit="s"/>
+
+    <software.blob.android.preference.view.SeekBarPreferenceView
+        app:key="@string/pref_graph_note_thresh"
+        app:icon="@drawable/ic_note_thresh"
+        app:title="@string/pref_graph_note_thresh_title"
+        app:summary="@string/pref_graph_note_thresh_desc"
+        app:type="floating"
+        app:minValue="0"
+        app:maxValue="10"
+        app:interval="1"/>
+
+    <software.blob.android.preference.view.SeekBarPreferenceView
+        app:key="@string/pref_graph_focus_lag"
+        app:icon="@drawable/ic_focus_lag"
+        app:title="@string/pref_graph_focus_lag_title"
+        app:summary="@string/pref_graph_focus_lag_desc"
+        app:type="floating"
+        app:minValue="0"
+        app:maxValue="1"
+        app:interval="0.05"/>
+
+    <software.blob.android.preference.view.PreferenceLinkView
+        app:icon="@drawable/ic_settings"
+        app:title="@string/advanced_settings"
+        app:xml="@xml/advanced_prefs"/>
+
+</PreferenceScreen>

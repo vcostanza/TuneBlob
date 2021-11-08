@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/radial_meter"
+        android:id="@+id/radial_meter"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_radial_meter"/>
+
+    <item android:title="@string/graph_meter"
+        android:id="@+id/graph_meter"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_graph_meter"/>
+
+    <item android:title="@string/toggle_theme"
+        android:id="@+id/theme_toggle"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_theme_toggle"/>
+
+    <item android:title="@string/settings"
+        android:id="@+id/settings"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_settings"/>
+
+</menu>

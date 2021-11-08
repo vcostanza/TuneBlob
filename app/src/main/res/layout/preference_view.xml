@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/pref_outer_margin"
+    android:orientation="vertical">
+
+    <!-- Primary layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- Icon -->
+        <FrameLayout
+            android:id="@android:id/icon_frame"
+            android:layout_width="@dimen/pref_frame_size"
+            android:layout_height="@dimen/pref_frame_size">
+            <ImageView
+                android:id="@android:id/icon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:tint="@color/icon_tint"
+                tools:src="@android:drawable/ic_settings"/>
+        </FrameLayout>
+
+        <!-- This is where the title and summary go -->
+        <LinearLayout
+            android:id="@+id/title_summary_frame"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pref_inner_margin"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@android:id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/pref_title_size"
+                android:textColor="@color/title_text"
+                tools:text="Preference Title"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@android:id/summary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/pref_summary_size"
+                android:textColor="@color/summary_text"
+                tools:text="A summary of what the preference does."/>
+
+        </LinearLayout>
+
+        <!-- Optional widget goes here -->
+        <FrameLayout
+            android:id="@android:id/widget_frame"
+            android:layout_width="@dimen/pref_frame_size"
+            android:layout_height="@dimen/pref_frame_size"
+            android:layout_marginStart="@dimen/pref_inner_margin"/>
+
+    </LinearLayout>
+
+    <!-- Additional widget space -->
+    <FrameLayout
+        android:id="@+id/bottom_widget_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pref_inner_margin"
+        android:orientation="vertical"
+        android:visibility="gone"/>
+
+</LinearLayout>
