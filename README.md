@@ -7,7 +7,9 @@ TuneBlob is a simple Android app for aiding with musical tuning. It has two diff
 
 Users can switch between the two modes using the left-most button on the action bar.
 
-*Note: This app requires access to the device microphone to function properly.*
+## Requirements
+- Android 5.0 Lollipop or newer (primarily tested with Android 11)
+- Access to the device microphone (since this is an audio-based tuner)
 
 ## Features
 - Several customizable display settings for the graph meter
@@ -18,8 +20,9 @@ Users can switch between the two modes using the left-most button on the action 
 
 ## TODO
 - Add basic JUnit tests
+- Option for changing the input microphone
 - Split screen mode so the user can use both the radial and graph meters together
 
 ## Purpose
 Besides its utility as a musical tuner (of which there are many), I created this app to learn Kotlin and brush up on my knowledge of OpenGL and C++.
-This is also the first Android app I've created and released outside of a professional context.
+This is also the first Android app I've created and released outside of a professional context. Truth be told I don't primarily consider myself an Android developer despite doing it professionally since 2015.
