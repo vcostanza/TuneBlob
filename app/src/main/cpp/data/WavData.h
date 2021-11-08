@@ -1,12 +1,9 @@
-/*
- * Struct containing waveform samples
- */
 
 #ifndef TUNEBLOB_WAVDATA_H
 #define TUNEBLOB_WAVDATA_H
 
 /**
- *
+ * Struct containing waveform samples
  */
 class WavData {
 public:
