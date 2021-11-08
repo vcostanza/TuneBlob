@@ -368,6 +368,9 @@ class GraphMeterView @JvmOverloads constructor(context: Context, attrs: Attribut
         }
     }
 
+    /**
+     * Update pixel scales for time and note values
+     */
     private fun updateScales() {
         pixelsPerNote = vpHeight.toDouble() / noteRange
         pixelsPerSecond = vpWidth.toDouble() / timeRange

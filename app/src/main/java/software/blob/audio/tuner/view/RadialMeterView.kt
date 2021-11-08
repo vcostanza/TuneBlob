@@ -27,10 +27,10 @@ abstract class RadialMeterView @JvmOverloads constructor(
     protected val maxAngle: Int
 
     // Drawing variables
-
     private var _diameter = 0f
     private var _dWidth = 0
 
+    // The diameter of the radial meter scaled to fit the available width
     val diameter: Float get() {
         if (_dWidth != width) {
             val r = width.toFloat() / 2
@@ -43,6 +43,7 @@ abstract class RadialMeterView @JvmOverloads constructor(
         }
         return _diameter
     }
+
     val radius: Float get() = diameter / 2
     val centerX: Float get() = width / 2f
     val centerY: Float get() = radius
@@ -84,6 +85,11 @@ abstract class RadialMeterView @JvmOverloads constructor(
      */
     fun radiusY(cos: Double, radius: Float) = centerY - (cos * radius).toFloat()
 
+    /**
+     * Keeps the radial meter a square if it can fit inside the viewport
+     * @param widthMeasureSpec Width measurement spec
+     * @param heightMeasureSpec Height measurement spec
+     */
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val mWidth = getDefaultSize(suggestedMinimumWidth, widthMeasureSpec)
         val mHeight = getDefaultSize(suggestedMinimumHeight, heightMeasureSpec)
