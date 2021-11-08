@@ -19,6 +19,12 @@ abstract class NonNullMap<K, V> : HashMap<K, V>() {
      * @return Value
      */
     override operator fun get(key: K): V {
-        return super.computeIfAbsent(key) { newEmptyValue(key) }
+        // Intentionally doesn't use computeIfAbsent since it calls get(key) which causes
+        // an infinite loop on older devices
+        var v = super.get(key)
+        if (v != null) return v
+        v = newEmptyValue(key)
+        put(key, v)
+        return v
     }
 }

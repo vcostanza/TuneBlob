@@ -68,7 +68,6 @@ open class SeekBarPreferenceView @JvmOverloads constructor(
 
         val seekbar = holder.findViewById(R.id.seekbar) as SeekBar
         seekbar.setOnSeekBarChangeListener(null)
-        seekbar.min = 0
         seekbar.max = intRange
         seekbar.progress = valueToProgress(value)
         seekbar.tag = valueTxt
