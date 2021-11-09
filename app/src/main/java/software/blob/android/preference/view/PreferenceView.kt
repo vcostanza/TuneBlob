@@ -67,7 +67,7 @@ open class PreferenceView @JvmOverloads constructor(
         findViewById(android.R.id.icon) as ImageView
 
     val PreferenceViewHolder.iconFrame: ViewGroup get() =
-        findViewById(android.R.id.icon_frame) as ViewGroup
+        findViewById(R.id.icon_frame) as ViewGroup
 
     val PreferenceViewHolder.widgetFrame: ViewGroup get() =
         findViewById(android.R.id.widget_frame) as ViewGroup

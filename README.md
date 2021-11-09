@@ -8,7 +8,7 @@ TuneBlob is a simple Android app for aiding with musical tuning. It has two diff
 Users can switch between the two modes using the left-most button on the action bar.
 
 ## Requirements
-- Android 7.0 Nougat or newer (tested with Android 7.1, 9, and 11)
+- Android 6.0 Marshmallow or newer (tested with Android 7.1, 9, and 11)
 - Access to the device microphone (since this is an audio-based tuner)
 
 ## Features

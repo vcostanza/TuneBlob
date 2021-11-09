@@ -1,6 +1,7 @@
 package software.blob.android.opengl.layer
 
 import software.blob.android.opengl.drawable.GLTextRect
+import software.blob.android.compatibility.SDKCompat.computeIfAbsentCompat
 
 /**
  * Layer used for rendering 2D text
@@ -20,7 +21,7 @@ class GLCachedTextLayer : GLBasic2DLayer() {
      * @return Text rectangle
      */
     operator fun get(text: String): GLTextRect {
-        return map.computeIfAbsent(text) { GLTextRect(text).also { add(it) } }
+        return map.computeIfAbsentCompat(text) { GLTextRect(text).also { add(it) } }
     }
 
     /**
