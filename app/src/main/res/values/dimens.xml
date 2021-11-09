@@ -14,7 +14,7 @@
     <dimen name="note_text_size">18sp</dimen>
     <dimen name="note_text_min_width">45dp</dimen>
     <dimen name="radial_meter_margin">12dp</dimen>
-    <dimen name="radial_meter_margin_top">24dp</dimen>
+    <dimen name="radial_meter_margin_top">36dp</dimen>
     <dimen name="radial_meter_text_size">16dp</dimen>
     <dimen name="radial_meter_anchor_radius">6dp</dimen>
     <dimen name="radial_meter_tick_length">10dp</dimen>

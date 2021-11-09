@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<software.blob.audio.tuner.view.NoteTextLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/button_padding"
+    android:background="@drawable/note_text_background"
+    android:visibility="invisible">
+
+    <!-- Scientific note name -->
+    <TextView
+        android:id="@+id/note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="@dimen/note_text_min_width"
+        android:textColor="@color/title_text"
+        android:textSize="@dimen/note_text_size"
+        android:textStyle="bold"
+        tools:text="C#4"/>
+
+    <!-- Microtonal variation in cents -->
+    <TextView
+        android:id="@+id/cents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="@dimen/note_text_min_width"
+        android:textColor="@color/title_text"
+        android:textSize="@dimen/note_text_size"
+        android:textStyle="bold"
+        tools:text="+50\u00A2"/>
+
+</software.blob.audio.tuner.view.NoteTextLayout>

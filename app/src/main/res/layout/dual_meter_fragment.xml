@@ -6,11 +6,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/note_background"
-    tools:context=".fragment.RadialMeterFragment">
+    tools:context=".fragment.DualMeterFragment">
 
+    <!-- Graph on the left side -->
+    <software.blob.audio.tuner.view.GraphMeterView
+        android:id="@+id/graph_view"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintWidth_percent="0.5"/>
+
+    <!-- Radial meter on right side -->
     <include layout="@layout/radial_meter"
         android:id="@+id/radial_meter"
-        app:layout_constraintBaseline_toTopOf="parent"/>
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintWidth_percent="0.5"/>
 
     <!-- Displays the current note w/ microtonal variation -->
     <include layout="@layout/meter_text"

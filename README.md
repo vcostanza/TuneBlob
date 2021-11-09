@@ -1,11 +1,12 @@
 ![TuneBlob](app/src/main/res/mipmap-xhdpi/ic_launcher.png)
 
 ## Overview
-TuneBlob is a simple Android app for aiding with musical tuning. It has two different visualization modes:
+TuneBlob is a simple Android app for aiding with musical tuning. It has 3 different visualization modes:
 - Radial meter - Traditional radial tuning meter with a rotating pointer line that shows microtonal variation
 - Graph meter - Tones are represented by lines on a grid that resembles a piano roll
+- Dual meter - Both the radial and graph meters are shown side by side
 
-Users can switch between the two modes using the left-most button on the action bar.
+Users can switch between these modes using the left-most buttons on the action bar.
 
 ## Requirements
 - Android 6.0 Marshmallow or newer (tested with Android 7.1, 9, and 11)
@@ -21,7 +22,6 @@ Users can switch between the two modes using the left-most button on the action 
 ## TODO
 - Add basic JUnit tests
 - Option for changing the input microphone
-- Split screen mode so the user can use both the radial and graph meters together
 
 ## Purpose
 Besides its utility as a musical tuner (of which there are many), I created this app to learn Kotlin and brush up on my knowledge of OpenGL and C++.

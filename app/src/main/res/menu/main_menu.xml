@@ -12,6 +12,11 @@
         app:showAsAction="always"
         android:icon="@drawable/ic_graph_meter"/>
 
+    <item android:title="@string/dual_meter"
+        android:id="@+id/dual_meter"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_dual_meter"/>
+
     <item android:title="@string/toggle_theme"
         android:id="@+id/theme_toggle"
         app:showAsAction="ifRoom"

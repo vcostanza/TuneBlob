@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import software.blob.audio.tuner.engine.TunerInputEngine
+import software.blob.audio.tuner.fragment.DualMeterFragment
 import software.blob.audio.tuner.fragment.GraphMeterFragment
 import software.blob.audio.tuner.fragment.RadialMeterFragment
 import software.blob.audio.tuner.preference.PreferenceActivity
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity() {
     // Menu buttons
     private var radialBtn: MenuItem? = null
     private var graphBtn: MenuItem? = null
+    private var dualBtn: MenuItem? = null
 
     /**
      * App creation method
@@ -70,6 +72,7 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.main_menu, menu)
         radialBtn = menu?.findItem(R.id.radial_meter)
         graphBtn = menu?.findItem(R.id.graph_meter)
+        dualBtn = menu?.findItem(R.id.dual_meter)
         updateMenu()
         return true
     }
@@ -88,6 +91,11 @@ class MainActivity : AppCompatActivity() {
             R.id.graph_meter -> {
                 prefs.activeFragment = "graph"
                 showFragment(GraphMeterFragment())
+                true
+            }
+            R.id.dual_meter -> {
+                prefs.activeFragment = "dual"
+                showFragment(DualMeterFragment())
                 true
             }
             R.id.theme_toggle -> {
@@ -148,10 +156,14 @@ class MainActivity : AppCompatActivity() {
 
     /**
      * Get fragment based on its name
-     * @param name Fragment name (radial or graph)
+     * @param name Fragment name (radial, graph, or duel)
      */
     private fun getFragment(name: String): Fragment {
-        return if (name == "radial") RadialMeterFragment() else GraphMeterFragment()
+        return when (name) {
+            "radial" -> RadialMeterFragment()
+            "graph" -> GraphMeterFragment()
+            else -> DualMeterFragment()
+        }
     }
 
     /**
@@ -180,8 +192,9 @@ class MainActivity : AppCompatActivity() {
      * Currently this just toggles the visibility of the fragment buttons
      */
     private fun updateMenu() {
-        radialBtn?.isVisible = fragment is GraphMeterFragment
-        graphBtn?.isVisible = fragment is RadialMeterFragment
+        radialBtn?.isVisible = fragment !is RadialMeterFragment
+        graphBtn?.isVisible = fragment !is GraphMeterFragment
+        dualBtn?.isVisible = fragment !is DualMeterFragment
     }
 
     /**

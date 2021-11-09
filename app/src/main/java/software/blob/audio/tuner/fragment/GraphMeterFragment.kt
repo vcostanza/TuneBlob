@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import software.blob.audio.tuner.R
 import software.blob.audio.tuner.databinding.GraphMeterFragmentBinding
 import software.blob.audio.tuner.view.GraphMeterView
 
@@ -22,6 +21,7 @@ class GraphMeterFragment : TunerFragment() {
     override fun onCreateView(inf: LayoutInflater, root: ViewGroup?, state: Bundle?): View {
         super.onCreateView(inf, root, state)
         _binding = GraphMeterFragmentBinding.inflate(inf, root, false)
+        text = binding.text.root
         return binding.root
     }
 
@@ -41,31 +41,5 @@ class GraphMeterFragment : TunerFragment() {
      */
     override fun addNoteSample(latestNote: Double, avgNote: Double, avgCents: Double) {
         binding.graphView.addSample(latestNote)
-    }
-
-    /**
-     * Update the note/cents text display
-     * @param noteName Formatted note name in scientific notation
-     * @param noteCents Formatted cents value
-     * @param tuned True if the note is within 10 cents of perfect tuning
-     */
-    override fun updateNoteText(noteName: String, noteCents: String, tuned: Boolean) {
-        binding.noteText.visibility = View.VISIBLE
-        binding.noteName.text = noteName
-        binding.noteCents.text = noteCents
-
-        // Set color based on if the note is in tune (within 10 cents)
-        val color = context?.getColor(if (tuned) R.color.in_tune_text else R.color.out_tune_text)
-        if (color != null) {
-            binding.noteName.setTextColor(color)
-            binding.noteCents.setTextColor(color)
-        }
-    }
-
-    /**
-     * Hide the text box
-     */
-    override fun reset() {
-        binding.noteText.visibility = View.INVISIBLE
     }
 }

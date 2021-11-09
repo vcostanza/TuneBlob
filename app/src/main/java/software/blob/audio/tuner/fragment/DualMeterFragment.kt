@@ -6,28 +6,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import software.blob.audio.tuner.R
-import software.blob.audio.tuner.databinding.RadialMeterFragmentBinding
+import software.blob.audio.tuner.databinding.DualMeterFragmentBinding
 import software.blob.audio.tuner.view.GraphMeterView
 import software.blob.audio.tuner.view.RadialMeterPointerView
 
 /**
- * Fragment that holds the [GraphMeterView]
+ * Fragment that holds both a [GraphMeterView] and [RadialMeterPointerView]
  */
-class RadialMeterFragment : TunerFragment() {
+class DualMeterFragment : TunerFragment() {
 
-    private var _binding: RadialMeterFragmentBinding? = null
+    private var _binding: DualMeterFragmentBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var pointer: RadialMeterPointerView
+    private lateinit var radialMeter: RadialMeterPointerView
 
     /**
      * Inflate the view binding
      */
     override fun onCreateView(inf: LayoutInflater, root: ViewGroup?, state: Bundle?): View {
         super.onCreateView(inf, root, state)
-        _binding = RadialMeterFragmentBinding.inflate(inf, root, false)
+        _binding = DualMeterFragmentBinding.inflate(inf, root, false)
         text = binding.text.root
-        pointer = binding.radialMeter.meterPointer
+        radialMeter = binding.radialMeter.meterPointer
         return binding.root
     }
 
@@ -40,13 +40,14 @@ class RadialMeterFragment : TunerFragment() {
     }
 
     /**
-     * Set the pointer facing the latest cent value
-     * @param latestNote Note value (unused here)
-     * @param avgNote Average note value (unused here)
+     * Set the pointer facing the latest cent value and update the graph
+     * @param latestNote Note value
+     * @param avgNote Average note value
      * @param avgCents Average cents value
      */
     override fun addNoteSample(latestNote: Double, avgNote: Double, avgCents: Double) {
-        pointer.cents = avgCents
+        radialMeter.cents = avgCents
+        binding.graphView.addSample(latestNote)
     }
 
     /**
@@ -61,7 +62,7 @@ class RadialMeterFragment : TunerFragment() {
         // Set color based on if the note is in tune (within 10 cents)
         val color = context?.getColor(if (tuned) R.color.in_tune_text else R.color.out_tune_text)
         if (color != null)
-            pointer.color = color
+            radialMeter.color = color
     }
 
     /**
@@ -69,7 +70,7 @@ class RadialMeterFragment : TunerFragment() {
      */
     override fun reset() {
         super.reset()
-        pointer.cents = 0.0
-        pointer.color = context?.getColor(R.color.title_text) ?: Color.WHITE
+        radialMeter.cents = 0.0
+        radialMeter.color = context?.getColor(R.color.title_text) ?: Color.WHITE
     }
 }

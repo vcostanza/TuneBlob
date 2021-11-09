@@ -23,7 +23,7 @@
     <color name="note_background">#CCC</color>
     <color name="note_background_even">#888</color>
     <color name="note_background_odd">#999</color>
-    <color name="graph_text_background">#60FFFFFF</color>
+    <color name="note_text_background">#60FFFFFF</color>
 
     <!-- Radial meter view -->
     <color name="radial_meter_outline">#222</color>

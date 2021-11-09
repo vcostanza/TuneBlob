@@ -9,6 +9,7 @@
     <!-- Menu buttons -->
     <string name="radial_meter">Radial Meter</string>
     <string name="graph_meter">Graph Meter</string>
+    <string name="dual_meter">Dual Meter</string>
     <string name="toggle_theme">Toggle Theme</string>
     <string name="settings">Settings</string>
 

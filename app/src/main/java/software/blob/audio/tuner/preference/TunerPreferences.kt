@@ -19,8 +19,8 @@ class TunerPreferences(context: Context) : SimplePreferences(context) {
         // Theme
         setDefault(R.string.pref_night_mode, AppCompatDelegate.MODE_NIGHT_UNSPECIFIED)
 
-        // Current fragment (radial or graph)
-        setDefault(R.string.pref_active_fragment, "radial")
+        // Current fragment (radial, graph, or dual)
+        setDefault(R.string.pref_active_fragment, "dual")
 
         // Engine parameters
         setDefault(R.string.pref_min_input_volume, -40f)

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/radial_meter_margin_top"
+    android:paddingStart="@dimen/radial_meter_margin"
+    android:paddingEnd="@dimen/radial_meter_margin"
+    android:paddingBottom="@dimen/radial_meter_margin">
+
+    <software.blob.audio.tuner.view.RadialMeterBackgroundView
+        android:id="@+id/meter_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <software.blob.audio.tuner.view.RadialMeterPointerView
+        android:id="@+id/meter_pointer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</FrameLayout>

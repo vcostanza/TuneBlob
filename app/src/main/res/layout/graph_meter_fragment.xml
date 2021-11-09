@@ -13,40 +13,12 @@
         android:layout_height="match_parent"/>
 
     <!-- Displays the current note w/ microtonal variation -->
-    <LinearLayout
-        android:id="@+id/note_text"
+    <include layout="@layout/meter_text"
+        android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="@dimen/button_padding"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBaseline_toTopOf="parent"
-        android:background="@drawable/graph_text_background"
-        android:visibility="invisible">
-
-        <!-- Scientific note name -->
-        <TextView
-            android:id="@+id/note_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minWidth="@dimen/note_text_min_width"
-            android:textColor="@color/title_text"
-            android:textSize="@dimen/note_text_size"
-            android:textStyle="bold"
-            tools:text="C#4"/>
-
-        <!-- Microtonal variation in cents -->
-        <TextView
-            android:id="@+id/note_cents"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minWidth="@dimen/note_text_min_width"
-            android:textColor="@color/title_text"
-            android:textSize="@dimen/note_text_size"
-            android:textStyle="bold"
-            tools:text="+50\u00A2"/>
-
-    </LinearLayout>
+        app:layout_constraintBaseline_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

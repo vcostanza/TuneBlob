@@ -20,6 +20,6 @@
     <color name="note_background">#000</color>
     <color name="note_background_even">#FF404040</color>
     <color name="note_background_odd">#FF282828</color>
-    <color name="graph_text_background">#00000000</color>
+    <color name="note_text_background">#60000000</color>
 
 </resources>

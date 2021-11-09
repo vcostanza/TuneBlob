@@ -15,6 +15,7 @@ import software.blob.android.thread.BasicIntervalThread
 import software.blob.audio.tuner.R
 import software.blob.audio.tuner.engine.TunerInputEngine
 import software.blob.audio.tuner.preference.TunerPreferences
+import software.blob.audio.tuner.view.NoteTextLayout
 import software.blob.audio.util.Misc
 import kotlin.math.abs
 import kotlin.math.roundToInt
@@ -32,6 +33,7 @@ abstract class TunerFragment : Fragment() {
     // Components
     private lateinit var audioManager: AudioManager
     private lateinit var engine: TunerInputEngine
+    protected var text: NoteTextLayout? = null
 
     // Window of latest frequency readings that are averaged together for smoother results
     private var readSize: Int = 20
@@ -96,13 +98,23 @@ abstract class TunerFragment : Fragment() {
      * @param tuned True if the note is within 10 cents of perfect tuning
      */
     @UiThread
-    abstract fun updateNoteText(noteName: String, noteCents: String, tuned: Boolean = false)
+    open fun updateDisplay(noteName: String, noteCents: String, tuned: Boolean = false) {
+        text?.visibility = View.VISIBLE
+        text?.setText(noteName, noteCents)
+
+        // Set color based on if the note is in tune (within 10 cents)
+        val color = context?.getColor(if (tuned) R.color.in_tune_text else R.color.out_tune_text)
+        if (color != null)
+            text?.color = color
+    }
 
     /**
      * Called when input hasn't been received for a period of time
      */
     @UiThread
-    abstract fun reset()
+    open fun reset() {
+        text?.visibility = View.INVISIBLE
+    }
 
     /**
      * Start the input engine
@@ -187,7 +199,7 @@ abstract class TunerFragment : Fragment() {
 
             // Update text
             runOnUiThread {
-                updateNoteText(noteName, getString(R.string.cent_format, centsStr), tuned)
+                updateDisplay(noteName, getString(R.string.cent_format, centsStr), tuned)
             }
         }
 

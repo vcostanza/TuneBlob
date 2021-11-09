@@ -22,10 +22,10 @@ class PreferenceActivity : AppCompatActivity() {
 
         // Open the settings based on the current active fragment
         val fragment = GenericPreferenceFragment(
-            if (prefs.activeFragment == "graph")
-                R.xml.graph_prefs
-            else
+            if (prefs.activeFragment == "radial")
                 R.xml.advanced_prefs
+            else
+                R.xml.graph_prefs
         )
         supportFragmentManager.beginTransaction()
             .replace(R.id.content, fragment)
