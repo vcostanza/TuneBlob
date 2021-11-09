@@ -50,6 +50,7 @@ class GraphMeterFragment : TunerFragment() {
      * @param tuned True if the note is within 10 cents of perfect tuning
      */
     override fun updateNoteText(noteName: String, noteCents: String, tuned: Boolean) {
+        binding.noteText.visibility = View.VISIBLE
         binding.noteName.text = noteName
         binding.noteCents.text = noteCents
 
@@ -62,7 +63,9 @@ class GraphMeterFragment : TunerFragment() {
     }
 
     /**
-     * Hide the text
+     * Hide the text box
      */
-    override fun reset() = updateNoteText("", "")
+    override fun reset() {
+        binding.noteText.visibility = View.INVISIBLE
+    }
 }

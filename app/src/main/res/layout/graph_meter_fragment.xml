@@ -22,7 +22,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBaseline_toTopOf="parent"
-        android:background="@drawable/graph_text_background">
+        android:background="@drawable/graph_text_background"
+        android:visibility="invisible">
 
         <!-- Scientific note name -->
         <TextView
