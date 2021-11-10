@@ -18,7 +18,7 @@
 
     <!-- Radial meter on right side -->
     <include layout="@layout/radial_meter"
-        android:id="@+id/radial_meter"
+        android:id="@+id/radial_view"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         app:layout_constraintRight_toRightOf="parent"

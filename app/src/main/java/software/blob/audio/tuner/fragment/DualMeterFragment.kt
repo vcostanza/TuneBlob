@@ -27,7 +27,7 @@ class DualMeterFragment : TunerFragment() {
         super.onCreateView(inf, root, state)
         _binding = DualMeterFragmentBinding.inflate(inf, root, false)
         text = binding.text.root
-        radialMeter = binding.radialMeter.meterPointer
+        radialMeter = binding.radialView!!.meterPointer
         return binding.root
     }
 

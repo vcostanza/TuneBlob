@@ -20,7 +20,6 @@ Users can switch between these modes using the left-most buttons on the action b
 - Action bar button to switch between day and night theme
 
 ## TODO
-- Add basic JUnit tests
 - Option for changing the input microphone
 
 ## Purpose

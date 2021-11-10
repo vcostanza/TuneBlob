@@ -9,7 +9,7 @@
     tools:context=".fragment.RadialMeterFragment">
 
     <include layout="@layout/radial_meter"
-        android:id="@+id/radial_meter"
+        android:id="@+id/radial_view"
         app:layout_constraintBaseline_toTopOf="parent"/>
 
     <!-- Displays the current note w/ microtonal variation -->
