@@ -9,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
-import androidx.preference.SeekBarPreference
 import software.blob.audio.tuner.R
 
 /**
@@ -40,8 +39,6 @@ open class PreferenceView @JvmOverloads constructor(
      */
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
-
-        val sb: SeekBarPreference
 
         // Add the bottom widget if specified
         if (bottomWidgetLayoutResource != 0) {
