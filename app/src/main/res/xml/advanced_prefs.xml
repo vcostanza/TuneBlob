@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <software.blob.audio.tuner.preference.view.InputDevicesPreferenceView
+        app:key="@string/pref_input_device"
+        app:icon="@drawable/ic_input_device"
+        app:title="@string/pref_input_device_title"
+        app:summary="@string/pref_input_device_desc"/>
+
     <software.blob.android.preference.view.SeekBarPreferenceView
         app:key="@string/pref_min_input_volume"
         app:icon="@drawable/ic_input_volume"

@@ -19,9 +19,6 @@ Users can switch between these modes using the left-most buttons on the action b
 - Customizable tuning standard (440 Hz by default)
 - Action bar button to switch between day and night theme
 
-## TODO
-- Option for changing the input microphone
-
 ## Purpose
 Besides its utility as a musical tuner (of which there are many), I created this app to learn Kotlin and brush up on my knowledge of OpenGL and C++.
 This is also the first Android app I've created and released outside of a professional context. Truth be told I don't primarily consider myself an Android developer despite doing it professionally since 2015.

@@ -12,6 +12,52 @@
         <item>50</item>
     </integer-array>
 
+    <!-- Audio device types ordered by their integer value -->
+    <string-array name="device_types">
+        <item>Unknown</item>
+        <item>Built-in Earpiece</item>
+        <item>Built-in Speaker</item>
+        <item>Wired Headset</item>
+        <item>Wired Headphones</item>
+        <item>Analog Line</item>
+        <item>Digital Line</item>
+        <item>Bluetooth (Telephony)</item>
+        <item>Bluetooth (A2DP)</item>
+        <item>HDMI</item>
+        <item>HDMI (ARC)</item>
+        <item>USB Device</item>
+        <item>USB Accessory</item>
+        <item>Dock</item>
+        <item>FM</item>
+        <item>Built-in Microphone</item>
+        <item>FM Tuner</item>
+        <item>TV Tuner</item>
+        <item>Telephony</item>
+        <item>AUX Line</item>
+        <item>IP</item>
+        <item>External Bus</item>
+        <item>USB Headset</item>
+        <item>Hearing Aid</item>
+        <item>Built-in Speaker</item>
+        <item>Remote Sub-mix</item>
+        <item>Bluetooth Headset</item>
+        <item>Bluetooth Speaker</item>
+        <item>Echo/Loopback</item>
+        <item>HDMI (EARC)</item>
+    </string-array>
+
+    <!-- Common audio device addresses -->
+    <string-array name="device_addresses">
+        <item>bottom</item>
+        <item>back</item>
+    </string-array>
+
+    <!-- User-friendly names for the addresses above -->
+    <string-array name="device_addresses_aliases">
+        <item>Front Mic</item>
+        <item>Back Mic</item>
+    </string-array>
+
     <!-- Standard color wheel -->
     <array name="color_wheel">
         <item>@color/red</item>

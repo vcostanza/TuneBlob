@@ -23,6 +23,7 @@ class TunerPreferences(context: Context) : SimplePreferences(context) {
         setDefault(R.string.pref_active_fragment, "dual")
 
         // Engine parameters
+        setDefault(R.string.pref_input_device, -1)
         setDefault(R.string.pref_min_input_volume, -40f)
         setDefault(R.string.pref_max_input_frequency, 1000f)
         setDefault(R.string.pref_tuning_standard, 440f)
@@ -47,6 +48,12 @@ class TunerPreferences(context: Context) : SimplePreferences(context) {
      */
     var activeFragment: String get() { return getString(R.string.pref_active_fragment) }
         set(value) { this[R.string.pref_active_fragment] = value }
+
+    /**
+     * The preferred input device (device ID; -1 = use first available)
+     */
+    var inputDevice: Int get() { return getInt(R.string.pref_input_device) }
+        set(value) { this[R.string.pref_input_device] = value }
 
     /**
      * The minimum input volume (decibels)

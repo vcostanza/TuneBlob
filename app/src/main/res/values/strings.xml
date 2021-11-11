@@ -2,9 +2,12 @@
 
     <string translatable="false" name="app_name">TuneBlob</string>
 
+    <!-- Dialog actions -->
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
     <!-- Permissions -->
     <string name="microphone_access_required">TuneBlob needs access to your microphone in order to function.</string>
-    <string name="ok">OK</string>
 
     <!-- Menu buttons -->
     <string name="radial_meter">Radial Meter</string>
@@ -15,6 +18,10 @@
 
     <!-- Formatting -->
     <string name="cent_format">%s\u00A2</string>
+
+    <!-- Errors -->
+    <string name="no_input_devices_found">No microphone found!</string>
+    <string name="failed_to_setup_microphone">Failed to setup microphone!</string>
 
     <!-- Preferences -->
 
@@ -28,6 +35,11 @@
 
     <!-- Day/night mode toggle -->
     <string translatable="false" name="pref_night_mode">night_mode</string>
+
+    <!-- Input device -->
+    <string translatable="false" name="pref_input_device">input_device</string>
+    <string name="pref_input_device_title">Input Device</string>
+    <string name="pref_input_device_desc">The microphone or input device to use for measuring pitch.</string>
 
     <!-- Minimum input volume -->
     <string translatable="false" name="pref_min_input_volume">min_input_volume</string>

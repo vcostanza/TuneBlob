@@ -1,6 +1,7 @@
 package software.blob.audio.tuner.fragment
 
 import android.content.Context
+import android.media.AudioDeviceInfo
 import android.media.AudioManager
 import android.os.Bundle
 import android.util.Log
@@ -8,8 +9,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.CallSuper
+import androidx.annotation.StringRes
 import androidx.annotation.UiThread
 import androidx.fragment.app.Fragment
+import com.google.android.material.snackbar.Snackbar
 import software.blob.android.collections.FIFOList
 import software.blob.android.thread.BasicIntervalThread
 import software.blob.audio.tuner.R
@@ -21,6 +24,21 @@ import kotlin.math.abs
 import kotlin.math.roundToInt
 
 private const val TAG = "TunerFragment"
+
+// The default sample rate for input devices if none is defined
+private const val DEFAULT_SAMPLE_RATE = 48000
+
+// Times per second to query the input engine for frequencies
+private const val FPS = 60
+
+// The number of readings used in the averaging window
+private const val READINGS_CAPACITY = 20
+
+// The amount of time before the readings window is reset (ms)
+private const val READINGS_TIMEOUT = 1000
+
+// The amount of time before the display is reset (ms)
+private const val DISPLAY_TIMEOUT = 5000
 
 /**
  * Base fragment class for views driven by the [TunerInputEngine]
@@ -36,8 +54,7 @@ abstract class TunerFragment : Fragment() {
     protected var text: NoteTextLayout? = null
 
     // Window of latest frequency readings that are averaged together for smoother results
-    private var readSize: Int = 20
-    private val readings = FIFOList<Double>(readSize)
+    private val readings = FIFOList<Double>(READINGS_CAPACITY)
 
     /**
      * Initialize the components for this fragment
@@ -120,23 +137,29 @@ abstract class TunerFragment : Fragment() {
      * Start the input engine
      */
     private fun startEngine() {
-        val devices = audioManager.getDevices(AudioManager.GET_DEVICES_INPUTS)
-        if (devices.isEmpty()) {
+        // Find the best input device for monitoring pitch
+        // The device may not support the desired channel and sample rate configuration, however
+        // the Oboe native library should take care of any conversions necessary
+        val device = findInputDevice()
+        if (device == null) {
+            showError(R.string.no_input_devices_found)
             Log.e(TAG, "No input devices found")
             return
         }
 
-        val device = devices[0]
+        // Set the filtering parameters for the input engine
         val minAmp = Misc.getAmplitude(prefs.minInputVolume.toDouble()).toFloat()
         val tuningStandard = prefs.tuningStandard.toDouble()
-
         if (!engine.setParameters(0.2f, minAmp, prefs.maxInputFrequency)) {
+            showError(R.string.failed_to_setup_microphone)
             Log.e(TAG, "Failed to set parameters on engine")
             return
         }
 
-        val success = engine.start(device.id, 1, 48000)
+        // Start the input engine
+        val success = engine.start(device.id, 1, device.getBestSampleRate())
         if (!success) {
+            showError(R.string.failed_to_setup_microphone)
             Log.e(TAG, "Failed to start engine")
             return
         }
@@ -145,7 +168,7 @@ abstract class TunerFragment : Fragment() {
 
         // Query frequency 60 frames per second and send them to the tuner view
         var lastNonZero = System.currentTimeMillis()
-        val thread = BasicIntervalThread(60) {
+        val thread = BasicIntervalThread(FPS) {
 
             // Pull a frequency sample from the engine
             val freq = engine.queryFrequency().toDouble()
@@ -172,11 +195,10 @@ abstract class TunerFragment : Fragment() {
                 val silenceTime = t - lastNonZero
 
                 // Clear readings if there's no input after 1 second
-                if (silenceTime >= 1000) readings.clear()
+                if (silenceTime >= READINGS_TIMEOUT) readings.clear()
 
                 // Clear text if there's no input after 5 seconds
-                if (silenceTime >= 5000)
-                    runOnUiThread { reset() }
+                if (silenceTime >= DISPLAY_TIMEOUT) runOnUiThread { reset() }
 
                 return@BasicIntervalThread
             }
@@ -226,5 +248,46 @@ abstract class TunerFragment : Fragment() {
      */
     private fun runOnUiThread(method: () -> Unit) {
         activity?.runOnUiThread { if (context != null) method() }
+    }
+
+    /**
+     * Show an error message to the user
+     * @param stringId Error message string resource ID
+     */
+    private fun showError(@StringRes stringId: Int) {
+        val view = this.view
+        val context = this.context
+        if (view != null && context != null)
+            Snackbar.make(view, stringId, Snackbar.LENGTH_LONG).show()
+    }
+
+    /**
+     * Find an input device based on the user preference
+     */
+    private fun findInputDevice(): AudioDeviceInfo? {
+        // Get the list of all available input devices
+        val devices = audioManager.getDevices(AudioManager.GET_DEVICES_INPUTS)
+        if (devices.isEmpty()) {
+            Log.e(TAG, "No input devices found")
+            return null
+        }
+
+        // Preferred device ID
+        val prefId = prefs.inputDevice
+
+        // Find matching device based on the ID
+        for (device in devices)
+            if (prefId == device.id) return device
+
+        // If no match was found then simply use the first device available
+        return devices[0]
+    }
+
+    /**
+     * Get the best available sample rate for an audio device
+     * @return Sample rate
+     */
+    private fun AudioDeviceInfo.getBestSampleRate(): Int {
+        return if (sampleRates.isEmpty()) DEFAULT_SAMPLE_RATE else sampleRates[sampleRates.size - 1]
     }
 }
