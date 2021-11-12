@@ -56,6 +56,17 @@ Java_software_blob_audio_tuner_engine_TunerInputEngine_stopEngine(
     return static_cast<jint>(engine->stop());
 }
 
+JNIEXPORT void JNICALL
+Java_software_blob_audio_tuner_engine_TunerInputEngine_destroyEngine(
+        JNIEnv *env,
+        jclass clazz,
+        jlong engineHandle) {
+
+    auto *engine = reinterpret_cast<TunerInputEngine *>(engineHandle);
+    engine->stop();
+    delete engine;
+}
+
 JNIEXPORT jfloat JNICALL
 Java_software_blob_audio_tuner_engine_TunerInputEngine_queryFrequency(
         JNIEnv *env,
