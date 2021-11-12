@@ -26,12 +26,12 @@ FrequencyReader::FrequencyReader(int sampleRate, float minAmplitude)
 }
 
 FrequencyReader::~FrequencyReader() {
-    delete processed;
-    delete in;
-    delete out;
-    delete out2;
-    delete freq;
-    delete freqa;
+    delete[] processed;
+    delete[] in;
+    delete[] out;
+    delete[] out2;
+    delete[] freq;
+    delete[] freqa;
 }
 
 float FrequencyReader::getFrequency(WavData *wav, int channel, int startFrame, int scanFrames) {

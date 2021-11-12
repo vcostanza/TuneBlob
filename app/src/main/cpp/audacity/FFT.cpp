@@ -32,9 +32,9 @@ FFT::FFT(int fftLen) : length(fftLen), length4(fftLen * 4) {
 }
 
 FFT::~FFT() {
-    delete sinTable;
-    delete bitReversed;
-    delete buffer;
+    delete[] sinTable;
+    delete[] bitReversed;
+    delete[] buffer;
 }
 
 void FFT::hannWindowFunc(bool extraSample, float *in) const {

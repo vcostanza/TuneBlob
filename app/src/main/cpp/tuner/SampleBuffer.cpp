@@ -15,7 +15,7 @@ SampleBuffer::SampleBuffer(int capacity) : capacity(capacity) {
  * Delete the sample buffer
  */
 SampleBuffer::~SampleBuffer() {
-    delete buffer;
+    delete[] buffer;
 }
 
 /**
