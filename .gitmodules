@@ -1,0 +1,3 @@
+[submodule "BlobDroid"]
+	path = BlobDroid
+	url = https://github.com/vcostanza/BlobDroid

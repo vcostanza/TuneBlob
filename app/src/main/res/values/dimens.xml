@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Buttons -->
-    <dimen name="button_small">36dp</dimen>
-    <dimen name="button_medium">40dp</dimen>
-    <dimen name="button_large">48dp</dimen>
-    <dimen name="button_padding">6dp</dimen>
-
-    <!-- Dialogs -->
-    <dimen name="dialog_padding">12dp</dimen>
-
     <!-- Tuner specific views -->
     <dimen name="note_text_size">18sp</dimen>
     <dimen name="note_text_min_width">45dp</dimen>
@@ -18,12 +9,5 @@
     <dimen name="radial_meter_text_size">16dp</dimen>
     <dimen name="radial_meter_anchor_radius">6dp</dimen>
     <dimen name="radial_meter_tick_length">10dp</dimen>
-
-    <!-- Preference views -->
-    <dimen name="pref_frame_size">48dp</dimen>
-    <dimen name="pref_outer_margin">12dp</dimen>
-    <dimen name="pref_inner_margin">8dp</dimen>
-    <dimen name="pref_title_size">16sp</dimen>
-    <dimen name="pref_summary_size">14sp</dimen>
 
 </resources>
