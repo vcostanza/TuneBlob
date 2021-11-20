@@ -12,7 +12,7 @@ import android.widget.ArrayAdapter
 import android.widget.CheckBox
 import android.widget.TextView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import software.blob.android.compatibility.SDKCompat
+import software.blob.android.compatibility.checkVersion
 import software.blob.android.preference.view.PreferenceView
 import software.blob.audio.tuner.R
 import software.blob.audio.tuner.preference.TunerPreferences
@@ -75,7 +75,7 @@ class InputDevicesPreferenceView @JvmOverloads constructor(
             val checkbox = view.findViewById<CheckBox>(R.id.checkbox)
 
             val device = getItem(position) as AudioDeviceInfo
-            val address = if (SDKCompat.checkVersion(Build.VERSION_CODES.P)) device.address else ""
+            val address = if (checkVersion(Build.VERSION_CODES.P)) device.address else ""
             val type = if (device.type < deviceTypes.size) deviceTypes[device.type] else ""
             val alias = addressMap[address]
 
