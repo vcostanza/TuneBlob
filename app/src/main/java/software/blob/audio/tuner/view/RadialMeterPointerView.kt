@@ -21,11 +21,10 @@ class RadialMeterPointerView @JvmOverloads constructor(
     private val anchorSize = resources.getDimension(R.dimen.radial_meter_anchor_radius)
 
     // The displayed cents (angle)
-    private var _cents = 0.0
-    var cents: Double get() { return _cents}
+    var cents = 0.0
         set(value) {
-            if (_cents != value) {
-                _cents = value
+            if (field != value) {
+                field = value
                 postInvalidate()
             }
         }

@@ -22,15 +22,14 @@ class NoteTextLayout @JvmOverloads constructor(
     /**
      * The color of the text
      */
-    var color: Int get() { return _color }
+    var color = Color.WHITE
         set(value) {
-            if (_color != value) {
-                _color = value
-                note.setTextColor(_color)
-                cents.setTextColor(_color)
+            if (field != value) {
+                field = value
+                note.setTextColor(field)
+                cents.setTextColor(field)
             }
         }
-    private var _color = Color.WHITE
 
     /**
      * Set the text for both views
