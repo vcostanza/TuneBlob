@@ -19,7 +19,9 @@ import software.blob.audio.tuner.R
 import software.blob.audio.tuner.engine.TunerInputEngine
 import software.blob.audio.tuner.preference.TunerPreferences
 import software.blob.audio.tuner.view.NoteTextLayout
-import software.blob.audio.util.Misc
+import software.blob.audio.tuner.util.getAmplitude
+import software.blob.audio.tuner.util.getNoteName
+import software.blob.audio.tuner.util.getNoteValue
 import kotlin.math.abs
 import kotlin.math.roundToInt
 
@@ -148,7 +150,7 @@ abstract class TunerFragment : Fragment() {
         }
 
         // Set the filtering parameters for the input engine
-        val minAmp = Misc.getAmplitude(prefs.minInputVolume.toDouble()).toFloat()
+        val minAmp = getAmplitude(prefs.minInputVolume.toDouble()).toFloat()
         val tuningStandard = prefs.tuningStandard.toDouble()
         if (!engine.setParameters(0.2f, minAmp, prefs.maxInputFrequency)) {
             showError(R.string.failed_to_setup_microphone)
@@ -204,8 +206,8 @@ abstract class TunerFragment : Fragment() {
             }
 
             // Convert to a note value
-            val latestNote = Misc.getNoteValue(freq, tuningStandard)
-            val avgNote = Misc.getNoteValue(avgFreq, tuningStandard)
+            val latestNote = getNoteValue(freq, tuningStandard)
+            val avgNote = getNoteValue(avgFreq, tuningStandard)
 
             // Compute the cents value from average note
             val noteInt = avgNote.roundToInt()
@@ -216,7 +218,7 @@ abstract class TunerFragment : Fragment() {
             addNoteSample(latestNote, avgNote, cents)
 
             // Formatting for UI text
-            val noteName = Misc.getNoteName(noteInt)
+            val noteName = getNoteName(noteInt)
             val centsStr = (if (cents >= 1) "+" else "") + cents.toInt()
 
             // Update text

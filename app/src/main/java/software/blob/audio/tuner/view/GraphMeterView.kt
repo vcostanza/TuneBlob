@@ -10,7 +10,6 @@ import android.view.ScaleGestureDetector
 import androidx.core.math.MathUtils.clamp
 import software.blob.audio.tuner.R
 import software.blob.android.opengl.drawable.GLRectangle
-import software.blob.audio.util.Misc
 import software.blob.audio.tuner.data.NoteCurve
 import software.blob.audio.tuner.data.NoteSample
 import software.blob.android.opengl.layer.GLBasic2DLayer
@@ -20,6 +19,7 @@ import software.blob.audio.tuner.gl.layer.GLNoteCurveLayer
 import software.blob.audio.tuner.gl.drawable.GLNoteCurve
 import software.blob.android.opengl.shader.GLBasicShader
 import software.blob.audio.tuner.preference.TunerPreferences
+import software.blob.audio.tuner.util.getNoteName
 import javax.microedition.khronos.egl.EGL10
 import javax.microedition.khronos.egl.EGL10.*
 import javax.microedition.khronos.egl.EGLConfig
@@ -242,7 +242,7 @@ class GraphMeterView @JvmOverloads constructor(context: Context, attrs: Attribut
             val bars = if ((note % 2) == 0) noteBars1 else noteBars2
             bars.addRectangle(0f, minY, w, minY + h)
 
-            val noteName = Misc.getNoteName(note)
+            val noteName = getNoteName(note)
             val text = textLayer[noteName]
             text.x = 10f
             text.y = minY + (h - text.height) / 2

@@ -1,6 +1,6 @@
 package software.blob.audio.tuner.data
 
-import software.blob.audio.util.Misc.indexToNoteName
+import software.blob.audio.tuner.util.indexToNoteName
 import kotlin.math.round
 
 /**
