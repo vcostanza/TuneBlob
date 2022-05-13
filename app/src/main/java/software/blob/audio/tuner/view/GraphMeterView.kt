@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.opengl.GLES30.*
 import android.opengl.GLSurfaceView
 import android.util.AttributeSet
+import android.util.Log
 import android.view.MotionEvent
 import android.view.ScaleGestureDetector
 import androidx.core.math.MathUtils.clamp
@@ -27,6 +28,7 @@ import javax.microedition.khronos.egl.EGLDisplay
 import javax.microedition.khronos.opengles.GL10
 import kotlin.math.*
 
+private const val TAG = "GraphMeterView"
 private const val NOTE_WIDTH = 0.25
 
 /**
@@ -154,6 +156,10 @@ class GraphMeterView @JvmOverloads constructor(context: Context, attrs: Attribut
      * @return EGL config
      */
     override fun chooseConfig(egl: EGL10, display: EGLDisplay): EGLConfig? {
+
+        // Create configs and attributes
+        val configs = arrayOfNulls<EGLConfig>(1)
+        val configCounts = IntArray(1)
         val attribs = intArrayOf(
             EGL_LEVEL, 0,
             EGL_RENDERABLE_TYPE, 4,
@@ -168,9 +174,27 @@ class GraphMeterView @JvmOverloads constructor(context: Context, attrs: Attribut
             // End configs
             EGL_NONE
         )
-        val configs = arrayOfNulls<EGLConfig>(1)
-        val configCounts = IntArray(1)
-        egl.eglChooseConfig(display, attribs, configs, 1, configCounts)
+
+        // Check if this configuration is supported
+        if (!egl.eglChooseConfig(display, attribs, configs, 1, configCounts)) {
+            Log.e(TAG, "Anti-alias config not supported on this device. Trying fallback...")
+
+            // If it's not supported then try disabling anti-aliasing
+            val fallback = intArrayOf(
+                EGL_LEVEL, 0,
+                EGL_RENDERABLE_TYPE, 4,
+                EGL_COLOR_BUFFER_TYPE, EGL_RGB_BUFFER,
+                EGL_RED_SIZE, 8,
+                EGL_GREEN_SIZE, 8,
+                EGL_BLUE_SIZE, 8,
+                EGL_DEPTH_SIZE, 16,
+                // End configs
+                EGL_NONE
+            )
+            if (!egl.eglChooseConfig(display, attribs, configs, 1, configCounts))
+                Log.e(TAG, "Fatal error: Failed to set EGL config", Throwable())
+        }
+
         return configs[0]
     }
 
