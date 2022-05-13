@@ -191,7 +191,7 @@ class GraphMeterView @JvmOverloads constructor(context: Context, attrs: Attribut
                 // End configs
                 EGL_NONE
             )
-            if (!egl.eglChooseConfig(display, attribs, configs, 1, configCounts))
+            if (!egl.eglChooseConfig(display, fallback, configs, 1, configCounts))
                 Log.e(TAG, "Fatal error: Failed to set EGL config", Throwable())
         }
 
